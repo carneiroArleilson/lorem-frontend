@@ -38,7 +38,14 @@
               <td>{{ getUsers(project.participants) }}</td>
               <td>{{ project.created_at | date: "dd/MM/yyyy" }}</td>
               <td class="text-center">
-                <button type="button" class="btn btn-primary btn-option" (click)="setModal(project.id)" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                <button
+                  type="button"
+                  class="btn btn-warning btn-option"
+                  (click)="investiment(project.price, project.risc)"
+                >
+                  <i class="fas fa-coins"></i>
+                </button>
+                <button type="button" class="btn btn-primary btn-option ms-0 ms-sm-0 ms-md-0 ms-lg-2 ms-xl-2 mt-2 mt-sm-2 mt-md-2 mt-lg-0 mt-xl-0" (click)="setModal(project.id)" data-bs-toggle="modal" data-bs-target="#exampleModal">
                   <i class="fas fa-edit"></i>
                 </button>
                 <button

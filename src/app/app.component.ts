@@ -91,4 +91,23 @@ export class AppComponent {
   public setModal(id_project: number) {
     this.modal_project = id_project;
   }
+
+  public investiment(price: number, risc: number) {
+    try {
+      const investmentValue = Number(prompt('Insert investment value:'));
+
+      if(!investmentValue) throw new Error();
+
+      if(investmentValue < price) {
+        alert('Investment value is lower then project price!');
+        return;
+      }
+
+      const value = risc == 0 ? investmentValue * (5 / 100) : risc == 1 ? investmentValue * (10 / 100) : investmentValue * (20 / 100);
+
+      alert(`Return value from investment is ${value}`);
+    } catch (error) {
+      alert('Investment value is incorrect. Try again!');
+    }
+  }
 }
