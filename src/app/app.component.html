@@ -31,12 +31,12 @@
             <tr *ngFor="let project of projects">
               <th scope="row">{{ project.id }}</th>
               <td>{{ project.name }}</td>
-              <td>{{project.dt_begin | date: 'dd/MM/yyyy'}}</td>
-              <td>{{project.dt_end | date: 'dd/MM/yyyy'}}</td>
+              <td>{{ project.dt_begin | date: "dd/MM/yyyy" }}</td>
+              <td>{{ project.dt_end | date: "dd/MM/yyyy" }}</td>
               <td>R$ {{ project.price }}</td>
               <td>{{ project.risc }}</td>
               <td>Participantes</td>
-              <td>{{project.created_at | date: 'dd/MM/yyyy'}}</td>
+              <td>{{ project.created_at | date: "dd/MM/yyyy" }}</td>
               <td class="text-center">
                 <button type="button" class="btn btn-primary btn-option">
                   <i class="fas fa-edit"></i>
@@ -58,15 +58,17 @@
     <div class="col">
       <nav aria-label="Page navigation example">
         <ul class="pagination justify-content-center">
-          <li class="page-item">
+          <li class="page-item" [ngClass]="{ 'disabled': pagination.current == 1 }">
             <a class="page-link" href="#" aria-label="Previous">
               <span aria-hidden="true">&laquo;</span>
             </a>
           </li>
-          <li class="page-item"><a class="page-link" href="#">1</a></li>
-          <li class="page-item"><a class="page-link" href="#">2</a></li>
-          <li class="page-item"><a class="page-link" href="#">3</a></li>
-          <li class="page-item">
+          <div *ngFor="let pg of pagination.each">
+            <li class="page-item" [ngClass]="{ 'active': pagination.current == pg }">
+              <button type="button" class="page-link" href="#" (click)="setPagination(pg)">{{ pg }}</button>
+            </li>
+          </div>
+          <li class="page-item" [ngClass]="{ 'disabled': pagination.current == pagination.each.length }">
             <a class="page-link" href="#" aria-label="Next">
               <span aria-hidden="true">&raquo;</span>
             </a>

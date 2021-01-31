@@ -3,6 +3,13 @@ import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment.prod';
 import { Project } from '../interface/project.interface';
 
+interface ProjectResponse {
+  data: Project[];
+  total: number;
+  take: number;
+  skip: number;
+}
+
 @Injectable()
 export class ProjectService {
   private readonly url = `${environment.baseUrl}/project`;
@@ -11,7 +18,7 @@ export class ProjectService {
 
   public async get(take: number = 5, skip: number = 0) {
     return await this.http
-      .get<Project[]>(`${this.url}/?take=${take}&skip=${skip}`)
+      .get<ProjectResponse>(`${this.url}/?take=${take}&skip=${skip}`)
       .toPromise();
   }
   public async create(project: Project) {
