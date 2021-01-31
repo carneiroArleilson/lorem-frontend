@@ -1,0 +1,113 @@
+<div
+  class="modal fade"
+  id="exampleModal"
+  tabindex="-1"
+  aria-labelledby="exampleModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">{{ title }}</h5>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
+      </div>
+      <form #f="ngForm" (ngSubmit)="onSubmit(f)" novalidate>
+        <div class="modal-body">
+          <div class="form-group">
+            <strong><label for="name">Name</label></strong>
+            <input
+              type="text"
+              id="name"
+              name="name"
+              ngModel
+              class="form-control"
+              required
+            />
+          </div>
+          <div class="form-group mt-2">
+            <strong><label for="begin">Begin Date</label></strong>
+            <input
+              type="date"
+              id="begin"
+              name="dt_begin"
+              ngModel
+              class="form-control"
+              required
+            />
+          </div>
+          <div class="form-group mt-2">
+            <strong><label for="end">End Date</label></strong>
+            <input
+              type="date"
+              id="end"
+              name="dt_end"
+              ngModel
+              class="form-control"
+              required
+            />
+          </div>
+          <div class="form-group mt-2">
+            <strong><label for="price">Price</label></strong>
+            <input
+              type="number"
+              step="0.01"
+              id="price"
+              name="price"
+              ngModel
+              class="form-control"
+              required
+            />
+          </div>
+          <div class="form-group mt-2">
+            <strong><label for="risc">Risc</label></strong>
+            <select
+              name="risc"
+              id="risc"
+              name="risc"
+              ngModel
+              class="form-control"
+              required
+            >
+              <option value="0">Baixo</option>
+              <option value="1">Médio</option>
+              <option value="2">Alto</option>
+            </select>
+          </div>
+          <div class="form-group mt-2">
+            <strong><label for="participants">Participants</label></strong>
+            <div class="row">
+              <div class="col">
+                <input
+                  type="text"
+                  id="participants"
+                  name="participants"
+                  ngModel
+                  class="form-control"
+                  required
+                />
+              </div>
+              <div class="col-auto">
+                <button type="button" class="btn btn-success">Add User</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button
+            type="button"
+            class="btn btn-secondary"
+            data-bs-dismiss="modal"
+          >
+            Close
+          </button>
+          <button class="btn btn-primary">Save changes</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

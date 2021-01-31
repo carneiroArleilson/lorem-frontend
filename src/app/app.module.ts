@@ -5,14 +5,18 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppComponent } from './app.component';
 import { ProjectService } from 'src/core/services/project.service';
 import { UserService } from 'src/core/services/user.service';
+import { CreateditprojectComponent } from './components/createditproject/createditproject.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    CreateditprojectComponent
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
+    FormsModule
   ],
   providers: [ProjectService, UserService],
   bootstrap: [AppComponent]
