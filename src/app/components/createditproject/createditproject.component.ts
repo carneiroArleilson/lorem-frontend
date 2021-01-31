@@ -57,11 +57,12 @@ export class CreateditprojectComponent implements OnInit, OnChanges {
     else await this.projectService.update(this.id_project, project, this.participants.split(',').map(participant => Number(participant)));
 
     alert(this.id_project == 0 ? 'Project Created!' : 'Project Updated!');
+
+    window.location.reload();
   }
 
   public async getProjectById(id_project: number) {
     this.project = await this.projectService.getProjectById(id_project);
-    console.log(this.project.participants);
 
     this.project.participants?.map(
       (participant, index) =>
