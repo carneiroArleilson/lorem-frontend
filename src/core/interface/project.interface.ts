@@ -1,4 +1,6 @@
-interface Project {
+import { Participant } from "./participant.interface";
+
+export interface Project {
   id?: number;
   name: string;
   dt_begin: string;
@@ -7,5 +9,5 @@ interface Project {
   risc: number;
   created_at?: string;
   updated_at?: string;
-  participants?: User[];
+  participants?: Participant[];
 }
