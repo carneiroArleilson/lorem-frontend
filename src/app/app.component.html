@@ -44,6 +44,7 @@
                 <button
                   type="button"
                   class="btn btn-danger btn-option ms-0 ms-sm-0 ms-md-0 ms-lg-2 ms-xl-2 mt-2 mt-sm-2 mt-md-2 mt-lg-0 mt-xl-0"
+                  (click)="deleteProject(project.id)"
                 >
                   <i class="fas fa-trash-alt"></i>
                 </button>
@@ -58,18 +59,45 @@
     <div class="col">
       <nav aria-label="Page navigation example">
         <ul class="pagination justify-content-center">
-          <li class="page-item" [ngClass]="{ 'disabled': pagination.current == 1 }">
-            <button type="button" class="page-link" aria-label="Previous" (click)="previousPage()">
+          <li
+            class="page-item"
+            [ngClass]="{ disabled: pagination.current == 1 }"
+          >
+            <button
+              type="button"
+              class="page-link"
+              aria-label="Previous"
+              (click)="previousPage()"
+            >
               <span aria-hidden="true">&laquo;</span>
             </button>
           </li>
           <div *ngFor="let pg of pagination.each">
-            <li class="page-item" [ngClass]="{ 'active': pagination.current == pg }">
-              <button type="button" class="page-link" (click)="setPagination(pg)">{{ pg }}</button>
+            <li
+              class="page-item"
+              [ngClass]="{ active: pagination.current == pg }"
+            >
+              <button
+                type="button"
+                class="page-link"
+                (click)="setPagination(pg)"
+              >
+                {{ pg }}
+              </button>
             </li>
           </div>
-          <li class="page-item" [ngClass]="{ 'disabled': pagination.current == pagination.each.length }">
-            <button type="button" class="page-link" aria-label="Next" (click)="nextPage()">
+          <li
+            class="page-item"
+            [ngClass]="{
+              disabled: pagination.current == pagination.each.length
+            }"
+          >
+            <button
+              type="button"
+              class="page-link"
+              aria-label="Next"
+              (click)="nextPage()"
+            >
               <span aria-hidden="true">&raquo;</span>
             </button>
           </li>

@@ -28,6 +28,6 @@ export class ProjectService {
     return await this.http.put<Project>(`${this.url}/`, project).toPromise();
   }
   public async delete(id_product: number) {
-    return await this.http.get(`${this.url}/${id_product}`).toPromise();
+    return await this.http.delete(`${this.url}/${id_product}`).toPromise();
   }
 }

@@ -75,4 +75,10 @@ export class AppComponent {
   public previousPage() {
     this.setPagination(this.pagination.current - 1);
   }
+
+  public async deleteProject(id_project: number) {
+    await this.projectService.delete(id_project);
+    alert('Project deleted!');
+    this.setPagination(this.pagination.current);
+  }
 }
