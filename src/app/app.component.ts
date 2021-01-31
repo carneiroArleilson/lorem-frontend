@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { DEFAULT_RISC } from 'src/core/constants/risc.constants';
+import { Participant } from 'src/core/interface/participant.interface';
 import { Project } from 'src/core/interface/project.interface';
+import { User } from 'src/core/interface/user.interface';
 import { ProjectService } from 'src/core/services/project.service';
 
 interface Pagination {
@@ -12,7 +14,7 @@ interface Pagination {
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  styleUrls: ['./app.component.css'],
 })
 export class AppComponent {
   public pagination: Pagination;
@@ -23,7 +25,7 @@ export class AppComponent {
     this.pagination = {
       total: 0,
       current: 1,
-      each: []
+      each: [],
     };
   }
 
@@ -34,11 +36,11 @@ export class AppComponent {
   public async retriveProjects(take: number = 5, skip: number = 0) {
     const { data, total } = await this.projectService.get(take, skip);
 
-    const eachPage = Math.ceil(total/take);
+    const eachPage = Math.ceil(total / take);
 
     this.projects = data;
     this.pagination.total = total;
-    this.pagination.each = Array.from({length: eachPage}, (_, i) => i + 1);
+    this.pagination.each = Array.from({ length: eachPage }, (_, i) => i + 1);
   }
 
   public async setPagination(page: number) {
@@ -50,6 +52,19 @@ export class AppComponent {
   }
 
   public getRisc(id_risc: number) {
-    return DEFAULT_RISC.find(risc => risc.id == id_risc)?.description;
+    return DEFAULT_RISC.find((risc) => risc.id == id_risc)?.description;
+  }
+
+  public getUsers(participants: Participant[]) {
+    let result = '';
+
+    participants.map(
+      (participant, index) =>
+        (result += ` ${participant.user.name}${
+          index < participants.length - 1 ? ',' : ''
+        }`)
+    );
+
+    return result;
   }
 }

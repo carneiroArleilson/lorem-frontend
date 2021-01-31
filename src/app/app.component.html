@@ -35,7 +35,7 @@
               <td>{{ project.dt_end | date: "dd/MM/yyyy" }}</td>
               <td>R$ {{ project.price }}</td>
               <td>{{ getRisc(project.risc) }}</td>
-              <td>Participantes</td>
+              <td>{{ getUsers(project.participants) }}</td>
               <td>{{ project.created_at | date: "dd/MM/yyyy" }}</td>
               <td class="text-center">
                 <button type="button" class="btn btn-primary btn-option">
