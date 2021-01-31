@@ -18,6 +18,7 @@ export class CreateditprojectComponent implements OnInit, OnChanges {
   ngOnChanges(changes: SimpleChanges): void {
     this.title = this.id_project == 0 ? 'New Project' : 'Edit Project';
     if(this.id_project > 0) this.getProjectById(this.id_project);
+
   }
 
   ngOnInit(): void {}

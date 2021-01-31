@@ -79,6 +79,10 @@ export class AppComponent {
   }
 
   public async deleteProject(id_project: number) {
+    const isToDelete = confirm('Are you sure to delete this project?');
+
+    if(!isToDelete) return;
+
     await this.projectService.delete(id_project);
     alert('Project deleted!');
     this.setPagination(this.pagination.current);
