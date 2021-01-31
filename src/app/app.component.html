@@ -59,19 +59,19 @@
       <nav aria-label="Page navigation example">
         <ul class="pagination justify-content-center">
           <li class="page-item" [ngClass]="{ 'disabled': pagination.current == 1 }">
-            <a class="page-link" href="#" aria-label="Previous">
+            <button type="button" class="page-link" aria-label="Previous" (click)="previousPage()">
               <span aria-hidden="true">&laquo;</span>
-            </a>
+            </button>
           </li>
           <div *ngFor="let pg of pagination.each">
             <li class="page-item" [ngClass]="{ 'active': pagination.current == pg }">
-              <button type="button" class="page-link" href="#" (click)="setPagination(pg)">{{ pg }}</button>
+              <button type="button" class="page-link" (click)="setPagination(pg)">{{ pg }}</button>
             </li>
           </div>
           <li class="page-item" [ngClass]="{ 'disabled': pagination.current == pagination.each.length }">
-            <a class="page-link" href="#" aria-label="Next">
+            <button type="button" class="page-link" aria-label="Next" (click)="nextPage()">
               <span aria-hidden="true">&raquo;</span>
-            </a>
+            </button>
           </li>
         </ul>
       </nav>

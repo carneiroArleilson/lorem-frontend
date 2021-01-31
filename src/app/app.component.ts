@@ -67,4 +67,12 @@ export class AppComponent {
 
     return result;
   }
+
+  public nextPage() {
+    this.setPagination(this.pagination.current + 1);
+  }
+
+  public previousPage() {
+    this.setPagination(this.pagination.current - 1);
+  }
 }
