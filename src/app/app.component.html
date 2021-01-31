@@ -4,7 +4,7 @@
       <h1>Projects</h1>
     </div>
     <div class="col-auto">
-      <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModal">
+      <button type="button" class="btn btn-success" (click)="setModal(0)" data-bs-toggle="modal" data-bs-target="#exampleModal">
         <i class="fas fa-plus"></i>
         <span class="ms-2">Add project</span>
       </button>
@@ -38,7 +38,7 @@
               <td>{{ getUsers(project.participants) }}</td>
               <td>{{ project.created_at | date: "dd/MM/yyyy" }}</td>
               <td class="text-center">
-                <button type="button" class="btn btn-primary btn-option">
+                <button type="button" class="btn btn-primary btn-option" (click)="setModal(project.id)" data-bs-toggle="modal" data-bs-target="#exampleModal">
                   <i class="fas fa-edit"></i>
                 </button>
                 <button
@@ -107,4 +107,4 @@
   </div>
 </div>
 
-<app-createditproject></app-createditproject>
+<app-createditproject id_project={{modal_project}}></app-createditproject>

@@ -19,6 +19,7 @@ interface Pagination {
 export class AppComponent {
   public pagination: Pagination;
   public projects: Project[];
+  public modal_project: number;
   public title = 'lorem-frontend';
 
   constructor(private readonly projectService: ProjectService) {
@@ -27,6 +28,7 @@ export class AppComponent {
       current: 1,
       each: [],
     };
+    this.modal_project = 0;
   }
 
   ngOnInit() {
@@ -80,5 +82,9 @@ export class AppComponent {
     await this.projectService.delete(id_project);
     alert('Project deleted!');
     this.setPagination(this.pagination.current);
+  }
+
+  public setModal(id_project: number) {
+    this.modal_project = id_project;
   }
 }

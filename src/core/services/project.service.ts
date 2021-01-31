@@ -21,14 +21,26 @@ export class ProjectService {
       .get<ProjectResponse>(`${this.url}/?take=${take}&skip=${skip}`)
       .toPromise();
   }
-  public async create(project: Project, users: number[]) {
-    return await this.http.post<Project>(`${this.url}/`, {
-      ...project,
-      users,
-    }).toPromise();
+  public async getProjectById(id_project: number) {
+    return await this.http
+      .get<Project>(`${this.url}/${id_project}`)
+      .toPromise();
   }
-  public async update(project: Project) {
-    return await this.http.put<Project>(`${this.url}/`, project).toPromise();
+  public async create(project: Project, users: number[]) {
+    return await this.http
+      .post<Project>(`${this.url}/`, {
+        ...project,
+        users,
+      })
+      .toPromise();
+  }
+  public async update(project: Project, users: number[]) {
+    return await this.http
+      .put<Project>(`${this.url}/`, {
+        ...project,
+        users,
+      })
+      .toPromise();
   }
   public async delete(id_product: number) {
     return await this.http.delete(`${this.url}/${id_product}`).toPromise();
