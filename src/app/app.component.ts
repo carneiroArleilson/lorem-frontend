@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { DEFAULT_RISC } from 'src/core/constants/risc.constants';
 import { Project } from 'src/core/interface/project.interface';
 import { ProjectService } from 'src/core/services/project.service';
 
@@ -46,5 +47,9 @@ export class AppComponent {
 
     this.pagination.current = page;
     this.retriveProjects(take, skip);
+  }
+
+  public getRisc(id_risc: number) {
+    return DEFAULT_RISC.find(risc => risc.id == id_risc)?.description;
   }
 }
