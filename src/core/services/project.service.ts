@@ -34,9 +34,9 @@ export class ProjectService {
       })
       .toPromise();
   }
-  public async update(project: Project, users: number[]) {
+  public async update(id_project: number, project: Project, users: number[]) {
     return await this.http
-      .put<Project>(`${this.url}/`, {
+      .put<Project>(`${this.url}/${id_project}`, {
         ...project,
         users,
       })

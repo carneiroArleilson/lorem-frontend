@@ -26,6 +26,7 @@
               name="name"
               ngModel
               class="form-control"
+              [(ngModel)]="project.name"
               required
             />
           </div>
@@ -37,6 +38,7 @@
               name="dt_begin"
               ngModel
               class="form-control"
+              [ngModel] ="project.dt_begin | date:'yyyy-MM-dd'"
               required
             />
           </div>
@@ -48,6 +50,7 @@
               name="dt_end"
               ngModel
               class="form-control"
+              [ngModel] ="project.dt_end | date:'yyyy-MM-dd'"
               required
             />
           </div>
@@ -60,6 +63,7 @@
               name="price"
               ngModel
               class="form-control"
+              [(ngModel)]="project.price"
               required
             />
           </div>
@@ -71,6 +75,7 @@
               name="risc"
               ngModel
               class="form-control"
+              [(ngModel)]="project.risc"
               required
             >
               <option value="0">Baixo</option>
@@ -88,7 +93,8 @@
                   name="participants"
                   ngModel
                   class="form-control"
-                  placeholder="1,2,3,4,5,6"
+                  placeholder=""
+                  [(ngModel)]="participants"
                   required
                 />
               </div>
